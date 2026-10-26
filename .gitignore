@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches & Environments
+.venv/
+env/
+venv/
+t2s/
+.cache/
+.pytest_cache/
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Temporary outputs & Rendered videos
+results/*
+!results/.gitkeep
+output/
+*.mp4
+*.webm
+tmp/
+*.log
+
+# Large Deep Learning Weights (Use Git LFS or external links for these)
+*.bin
+*.safetensors
+*.pt
+*.ckpt
+
+# Full raw pose directory if placed locally (keep sample poses)
+data/poses/*
+!data/poses/.gitkeep
