@@ -143,8 +143,8 @@ export VSL_MODEL_DIR="path/to/vit5_checkpoint"
 ```
 
 ### 2. Pose Keypoint Dataset
-* The repository includes common gestures (greetings, alphabet letters for fingerspelling) inside `data/sample_poses/` for immediate verification.
-* To use the full sign dictionary (8,700+ `.pose` files), extract them into `data/poses/` or point to the directory:
+* The repository includes common gestures  inside `data/sample_poses/` for immediate verification.
+* To use the full sign dictionary, extract them into `data/poses/` or download here:  https://drive.google.com/file/d/1M5SgBVRFmvBzMwdfcM16xE9w4ipbGVmq/view?usp=sharing
 ```bash
 export VSL_POSE_DIR="path/to/full_pose_dataset"
 ```
@@ -209,49 +209,25 @@ Generated video files are saved to `results/batch_test/`.
 
 ## 🔬 Text-to-Gloss Training & Evaluation
 
-### 1. Fine-tuning ViT5
+###  Fine-tuning ViT5
 Train the Text-to-Gloss model on the 10K parallel corpus using Hugging Face's `Seq2SeqTrainer`:
 ```bash
 python text2gloss/train/train.py
 ```
-
-### 2. Quantitative Evaluation
-Compute BLEU-1 to BLEU-4, ROUGE-1, ROUGE-2, ROUGE-L, and WER scores:
-```bash
-python text2gloss/evaluate.py data/Corpus-Vie-VSL-1k3/new_1k3_test_with_predict.csv
-```
-
 ---
 
-## 🔧 Environment Configuration Reference
-
-All settings can be configured via environment variables:
-
-| Variable | Default (Relative Path) | Description |
-| :--- | :--- | :--- |
-| `VSL_DATA_DIR` | `data` | Base directory for data assets |
-| `VSL_MAPPING_FILE` | `data/dictionary/test.json` | Token-to-label dictionary mapping file |
-| `VSL_POSE_DIR` | `data/poses` (fallback: `data/sample_poses`) | Directory containing `.pose` landmark files |
-| `VSL_MODEL_DIR` | `models/vit5_sign_grammar` | Directory containing fine-tuned ViT5 weights |
-| `VSL_FAISS_INDEX` | `data/semantic/phrases.index` | FAISS vector index for semantic retrieval |
-| `VSL_SENTENCES_TXT` | `data/semantic/sentences.txt` | Text file of canonical phrases for FAISS |
-| `VSL_SEMANTIC_MODEL` | `VoVanPhuc/sup-SimCSE-VietNamese-phobert-base` | SentenceTransformer model name or path |
-| `VSL_RESULTS_DIR` | `results` | Output directory for rendered videos |
-| `VSL_HOST` | `0.0.0.0` | Web server host address |
-| `VSL_PORT` | `8000` | Web server port |
-
----
 
 ## 📜 Citation
 
 If you use this codebase, dataset, or pipeline in your research, please cite:
 
 ```bibtex
-@misc{vsl_translator_2026,
-  author = {Quan, N. H. and Contributors},
-  title = {Vietnamese Text-to-Sign Language (VSL) Translation System},
-  year = {2026},
-  publisher = {GitHub},
-  howpublished = {\url{https://github.com/datheobc123/VSL_UIT}}
+@inproceedings{thanh2026greedy,
+  title={A Greedy Skeleton Retrieval Framework for Vietnamese Text-to-Sign Generation},
+  author={Thanh, Dat Phan and Cap, Thang},
+  booktitle={2026 International Conference on Multimedia Analysis and Pattern Recognition (MAPR)},
+  pages={682--687},
+  year={2026},
+  organization={IEEE}
 }
 ```
